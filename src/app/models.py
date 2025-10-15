@@ -16,3 +16,10 @@ class TaskUpdate(BaseModel):
     labels: Optional[List[str]] = None
     priority: Optional[str] = None
     due_string: Optional[str] = None
+
+class WebhookPayload(BaseModel):
+    event_name: str
+    user_id: int
+    event_data: dict
+    version: str
+    initiator: Optional[dict] = None
