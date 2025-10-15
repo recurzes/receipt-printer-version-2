@@ -1,0 +1,24 @@
+[project]
+name = "receipt-printer-ver2"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "recurzes",email = "donlancelotknight123@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "requests (>=2.32.5,<3.0.0)",
+    "openai-agents (>=0.3.3,<0.4.0)",
+    "google-genai (>=1.43.0,<2.0.0)",
+    "fastapi[all] (>=0.119.0,<0.120.0)",
+    "todoist-api-python (>=3.1.0,<4.0.0)",
+    "tzdata (>=2025.2,<2026.0)"
+]
+
+[tool.poetry]
+packages = [{include = "receipt_printer_ver2", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
