@@ -2,14 +2,16 @@ from fastapi import FastAPI, HTTPException
 from todoist_api_python.api import TodoistAPI
 import os
 
+import routers.webhooks
+import routers.tasks
 from app.models import TaskCreate, TaskUpdate
 from src.util.config import *
 
 app = FastAPI(title="Todoist CRUD API")
 todoist = TodoistAPI(TODOIST_API_TOKEN)
 
-
-
+app.include_router(routers.webhooks.router)
+app.include_router(routers.tasks.router)
 
 @app.get("/")
 async def root():
@@ -27,4 +29,4 @@ async def root():
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
