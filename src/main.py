@@ -1,10 +1,7 @@
-from fastapi import FastAPI, HTTPException
-from todoist_api_python.api import TodoistAPI
-import os
+from fastapi import FastAPI
 
 import routers.webhooks
 import routers.tasks
-from app.models import TaskCreate, TaskUpdate
 from src.util.config import *
 
 app = FastAPI(title="Todoist CRUD API")
