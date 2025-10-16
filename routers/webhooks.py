@@ -51,6 +51,7 @@ async def todoist_webhook(
     elif event_name == "note:deleted":
         await handle_note_deleted(event_data)
 
+    print("\n\n")
     return {"status": "Success", "event": event_name}
 
 
